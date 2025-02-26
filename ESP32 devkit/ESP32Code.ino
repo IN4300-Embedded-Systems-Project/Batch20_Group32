@@ -1,13 +1,14 @@
+// ESP 32 code for Portable Weather Station
 #include <WiFi.h>
 #include <FirebaseESP32.h>
 
-// Replace with your Wi-Fi credentials
-const char* ssid = "SLTFiber_plus";
-const char* password = "abcd1234";
 
-// Replace with your Firebase project credentials
-#define FIREBASE_HOST "portable-weather-station-59641-default-rtdb.firebaseio.com"  // Without "http://" or "https://" and no trailing "/"
-#define FIREBASE_AUTH "nYUcfMQKGge7Cnx16Qb7aknz3rA4e09zf9gU5KYX"
+const char* ssid = "";
+const char* password = "";
+
+
+#define FIREBASE_HOST ""  // no trailing "/"
+#define FIREBASE_AUTH ""
 
 // Create Firebase objects
 FirebaseData firebaseData;
@@ -41,7 +42,7 @@ void setup() {
   Firebase.begin(&firebaseConfig, &firebaseAuth);
   Firebase.reconnectWiFi(true);
 
-  // Optional: Set database read/write timeout (in milliseconds)
+  //  Set database read/write timeout (in milliseconds)
   Firebase.setReadTimeout(firebaseData, 1000 * 60); // 1 minute
   Firebase.setwriteSizeLimit(firebaseData, "tiny");  // Payload size limit
 }
