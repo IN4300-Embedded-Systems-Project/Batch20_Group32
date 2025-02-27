@@ -18,19 +18,40 @@ The system provides real-time monitoring of:
 
 ## Components Used
 
-### Hardware
+## Components Used
 
-*   **Arduino Mega 2560:**  The main microcontroller for reading sensor data and controlling the LCD.
-*   **ESP32 DevKit V1:**  Handles Wi-Fi connectivity and communication with the Firebase Realtime Database.
-*   **DHT22 Temperature and Humidity Sensor:** Measures temperature and humidity.
-*   **Rain Sensor Module:**  Provides both digital (presence/absence of rain) and analog (intensity) readings.
-*   **LDR (Light Dependent Resistor):**  Measures light intensity (illuminance).
-*   **10kΩ Resistor:**  Used in the voltage divider circuit with the LDR.
-*   **16x2 I2C LCD:**  Displays sensor readings locally on the Arduino side..
-*   **Jumper Wires:**  For connecting the components.
-*   **Breadboard:** For easy prototyping and connections.
-*   **Power Supply:**  6V - 12V power supply
+| Component                    | Description                                                                                                                                                                                                                                    |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino Mega 2560            | The main microcontroller.  Reads sensor data, controls the LCD, and communicates with the ESP32.                                                                                                                                     |
+| ESP32 DevKit V1              | Handles Wi-Fi connectivity and communication with the Firebase Realtime Database.  Receives data serially from the Arduino.                                                                                                                |
+| DHT22 Sensor                 | Measures temperature and humidity.                                                                                                                                                                                                    |
+| Rain Sensor Module           | Detects the presence and intensity of rain. Provides both digital (rain/no rain) and analog (intensity level) outputs.                                                                                                                         |
+| LDR (Light Dependent Resistor) | Measures light intensity (illuminance).  Its resistance changes depending on the amount of light falling on it.                                                                                                                                 |
+| 10kΩ Resistor                 | Used in a voltage divider circuit with the LDR to convert the LDR's resistance change into a measurable voltage.                                                                                                                             |
+| 16x2 I2C LCD                | Displays sensor readings locally on the Arduino side.  The I2C interface simplifies wiring compared to a standard parallel LCD.                                                                                                            |
+| Jumper Wires                | Used for connecting the components.                                                                                                                                                                                                   |
+| Breadboard                   | Provides a convenient way to connect components without soldering, making prototyping and circuit modifications easier.                                                                                                                 |
+| Power Supply                 | A 6V - 12V power supply is used to power the Arduino Mega 2560.  The ESP32 can be powered via its USB port or through its Vin pin (typically with 5V).  *Ensure a common ground connection between all components if using separate power supplies.* |
 
+## Circuit Diagram
+
+![Circuit Diagram](<circuit_image (1).png>)  
+**(Note: Replace `<circuit_image (1).png>` with the actual path to your image file.)**
+
+## Features
+
+*   **Real-time Weather Monitoring:**  Provides up-to-the-second readings of temperature, humidity, illuminance, and rain status.
+*   **Remote Data Access:**  Weather data is accessible from anywhere with an internet connection via the Flutter mobile app.
+*   **Firebase Integration:**  Utilizes Firebase Realtime Database for reliable and scalable data storage and retrieval.
+*   **User-Friendly Interface:** The Flutter app provides a clean and intuitive interface for viewing weather data.
+*   **Glassmorphic Design:** The app uses a modern glassmorphic UI design with blurred backgrounds and translucent elements.
+*   **Local Display:**  The 16x2 LCD provides a local display of sensor readings, even without internet connectivity.
+*   **Error Handling:** The Flutter app gracefully handles cases where data is unavailable or invalid, displaying fallback values.
+*   **Cross-Platform Compatibility:**  The Flutter app can be built for both Android and iOS platforms.
+*   **Open-Source:** The project code is open-source, allowing for customization and extension.
+
+## Block Diagram
+A text based block diagram is below.
 ### Software
 
 *   **Arduino IDE:**  For programming the Arduino Mega 2560.
